@@ -13,6 +13,9 @@ AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION:-"us-east-1"}"
 AWS_SECRET_ACCESS_KEY="${AWS_SECRET_ACCESS_KEY:-"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}"
 AWS_SYNC_BUCKETNAME="${AWS_SYNC_BUCKETNAME:-"my_backet_name"}"
 
+# create tarball directory
+mkdir -p ${BACKUP_TARBALL_DIR}
+
 # create tarball
 tar zcvf ${BACKUP_TARBALL_DIR}/${BACKUP_FILENAME} ${BACKUP_DUMP_DIR} > /dev/null 2&>1
 
