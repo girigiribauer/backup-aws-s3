@@ -8,6 +8,7 @@ DockerHub: https://hub.docker.com/r/girigiribauer/backup-aws-s3/
 
 If your dump file is `./tmp/dump/`, you type it.
 
+```sh
 docker run \
   --rm \
   -v $PWD/tmp:/storage \
@@ -16,6 +17,7 @@ docker run \
   -e AWS_SYNC_BUCKETNAME="my_bucket_name/backups" \
   -e AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
   girigiribauer/backup-aws-s3
+```
 
 
 
