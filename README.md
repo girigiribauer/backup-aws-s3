@@ -4,6 +4,21 @@ DockerHub: https://hub.docker.com/r/girigiribauer/backup-aws-s3/
 
 
 
+## How to use (docker run)
+
+If your dump file is `./tmp/dump/`, you type it.
+
+docker run \
+  --rm \
+  -v $PWD/tmp:/storage \
+  -e BACKUP_COUNTS=3 \
+  -e AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXXXXX \
+  -e AWS_SYNC_BUCKETNAME="my_bucket_name/backups" \
+  -e AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+  girigiribauer/backup-aws-s3
+
+
+
 ## Environment Variables
 
 ### `BACKUP_DIR`
@@ -52,4 +67,4 @@ Your aws secret access key here.
 
 default: `my_backet_name` (**should override**)
 
-Your bucket name here. You can write sub directories.
+Your bucket name here. You can write sub directories. (don`t need `s3://`)
