@@ -1,9 +1,8 @@
 #!/bin/sh
 
 # backup variables
-BACKUP_DIR="${BACKUP_DIR:-"/storage"}"
-BACKUP_DUMP_DIR="${BACKUP_DUMP_DIR:-"${BACKUP_DIR}/dump"}"
-BACKUP_TARBALL_DIR="${BACKUP_TARBALL_DIR:-"${BACKUP_DIR}/backups"}"
+BACKUP_DUMP_DIR="${BACKUP_DUMP_DIR:-"/dump"}"
+BACKUP_TARBALL_DIR="${BACKUP_TARBALL_DIR:-"/backups"}"
 BACKUP_FILENAME="backup-$(date "+%Y%m%d-%H%M%S").tar.gz"
 BACKUP_COUNTS="${BACKUP_COUNTS:-7}"
 

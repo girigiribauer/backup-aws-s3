@@ -6,12 +6,20 @@ DockerHub: https://hub.docker.com/r/girigiribauer/backup-aws-s3/
 
 ## How to use (docker run)
 
-If your dump file is `./tmp/dump/`, you type it.
+Example.
+
+* (current directory)
+	* dump/
+		* dump data
+	* backups/
+
+You type it.
 
 ```sh
 docker run \
   --rm \
-  -v $PWD/tmp:/storage \
+  -v $PWD/dump:/dump \
+  -v $PWD/backups:/backups \
   -e BACKUP_COUNTS=3 \
   -e AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXXXXXXXX \
   -e AWS_SYNC_BUCKETNAME="my_bucket_name/backups" \
@@ -23,23 +31,17 @@ docker run \
 
 ## Environment Variables
 
-### `BACKUP_DIR`
-
-default: `/storage`
-
-Backup base directory.
-
 ### `BACKUP_DUMP_DIR`
 
-default: `${BACKUP_DIR}/dump`
+default: `/dump`
 
-Backup dump directory, tarball source here.
+Backup dump directory, database dump data is here.
 
 ### `BACKUP_TARBALL_DIR`
 
-default: `${BACKUP_DIR}/backups`
+default: `/backups`
 
-Backup tarball target directory.
+Backup tarball target directory. AWS sync target.
 
 ### `BACKUP_COUNTS`
 
