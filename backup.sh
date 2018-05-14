@@ -17,7 +17,7 @@ AWS_SYNC_BUCKETNAME="${AWS_SYNC_BUCKETNAME:-"my_backet_name"}"
 mkdir -p ${BACKUP_TARBALL_DIR}
 
 # create tarball
-tar zcvf ${BACKUP_TARBALL_DIR}/${BACKUP_FILENAME} ${BACKUP_DUMP_DIR} > /dev/null 2&>1
+tar zcvf ${BACKUP_TARBALL_DIR}/${BACKUP_FILENAME} -C ${BACKUP_DUMP_DIR} . > /dev/null 2&>1
 
 # delete dumpfiles
 rm -rf ${BACKUP_DUMP_DIR}/*
